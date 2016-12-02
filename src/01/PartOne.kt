@@ -10,7 +10,7 @@ enum class TurnDirection{
     L, R
 }
 
-class PartOne {
+open class PartOne {
     val input = "data/input01.txt"
     var x = 0
     var y = 0
@@ -21,7 +21,11 @@ class PartOne {
     val text = File(input).readText()
 
     fun walk(direction : TurnDirection, blocks : Int) {
-        // Turn.
+        turn(direction)
+        moveForward(blocks)
+    }
+
+    fun turn(direction : TurnDirection) {
         when (direction) {
             TurnDirection.L -> {
                 // Make the enum wrap around.
@@ -43,11 +47,9 @@ class PartOne {
                 facing = FaceDirection.values()[newOrdinal]
             }
         }
-
-        moveForward(blocks)
     }
 
-    fun moveForward(blocks : Int) {
+    open fun moveForward(blocks : Int) {
         when (facing) {
             FaceDirection.E -> {
                 x += blocks
@@ -87,7 +89,7 @@ class PartOne {
         assert(distance == 12)
     }
 
-    @Test fun test_solution() {
+    @Test open fun test_solution() {
         val commands = text.split(",").map(String::trim)
         for (command in commands) {
             val direction = TurnDirection.valueOf(command[0].toString())
