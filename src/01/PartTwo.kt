@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test
 import java.lang.Math.abs
 import java.util.*
 
+data class Point2D (val x: Int, val y : Int)
+
 class PartTwo : PartOne() {
 
     val locations : ArrayList<Point2D> = arrayListOf(Point2D(0, 0)) // Start at pos 0, 0.
@@ -57,7 +59,7 @@ class PartTwo : PartOne() {
     }
 
     @Test override fun test_solution() {
-        val commands = text.split(",").map(String::trim)
+        val commands = solutionInput.split(",").map(String::trim)
         for (command in commands) {
             val direction = TurnDirection.valueOf(command[0].toString())
             walk(direction, command.substring(1).toInt())
@@ -71,5 +73,3 @@ class PartTwo : PartOne() {
         System.out.print(twiceDistance)
     }
 }
-
-data class Point2D (val x: Int, val y : Int)
