@@ -1,3 +1,5 @@
+package scorr._01
+
 import org.junit.jupiter.api.Test
 import java.lang.Math.abs
 import java.util.*
@@ -30,10 +32,10 @@ class PartTwo : PartOne() {
     }
 
     fun compareLocation(x : Int, y : Int) : Boolean {
-        var visit = locations.find({ it -> it.x == x && it.y == y});
+        var visit = locations.find({ it -> it.x == x && it.y == y})
         if (visit != null && firstLocationVisitedTwice == null) {
-            firstLocationVisitedTwice = visit;
-            return true;
+            firstLocationVisitedTwice = visit
+            return true
         }
         else {
             locations.add(Point2D(x, y))

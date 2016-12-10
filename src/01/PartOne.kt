@@ -1,3 +1,5 @@
+package scorr._01
+
 import org.junit.jupiter.api.Test
 import java.io.File
 import java.lang.Math.abs
@@ -29,20 +31,20 @@ open class PartOne {
         when (direction) {
             TurnDirection.L -> {
                 // Make the enum wrap around.
-                var newOrdinal : Int
+                val newOrdinal : Int
                 if (facing.ordinal == 0)
                     newOrdinal = FaceDirection.values().size - 1
                 else
-                    newOrdinal = facing.ordinal - 1;
+                    newOrdinal = facing.ordinal - 1
 
                 facing = FaceDirection.values()[newOrdinal]
             }
             TurnDirection.R -> {
-                var newOrdinal : Int
+                val newOrdinal : Int
                 if (facing.ordinal == FaceDirection.values().size - 1)
                     newOrdinal = 0
                 else
-                    newOrdinal = facing.ordinal + 1;
+                    newOrdinal = facing.ordinal + 1
 
                 facing = FaceDirection.values()[newOrdinal]
             }
